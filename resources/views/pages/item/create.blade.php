@@ -18,10 +18,11 @@
                             </ul>
                         </div>
                     @endif
-                    <form action="{{ route('item.store') }}" method="post">
+                    <form action="{{ route('item.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <input type="text" name="name" placeholder="name">
                         <input type="text" name="description" placeholder="description">
+                        <input type="file" name="file">
                         <button type="submit" class="bg-blue-300 text-blue-800 px-4 py-2 rounded-md my-2">Create +</button>
                     </form>
                 </div>

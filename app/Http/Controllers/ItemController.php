@@ -38,7 +38,12 @@ class ItemController extends Controller
     {
         $validated = $request->validated();
 
-        Item::create($validated);
+        $item = Item::create($validated);
+
+        $item
+        ->addMediaFromRequest('file')
+        ->usingFileName(time().'.jpg')
+        ->toMediaCollection('item');
 
         return to_route('item.index');
     }
@@ -67,6 +72,17 @@ class ItemController extends Controller
     public function update(UpdateItemRequest $request, Item $item)
     {
         $validated = $request->validated();
+
+        if ($request->file) {
+            $image = $item->getFirstMedia('*');
+            if ($image) {
+                $image->delete();
+            }
+            $item
+            ->addMediaFromRequest('file')
+            ->usingFileName(time().'.jpg')
+            ->toMediaCollection('item');
+        }
 
         $item->update($validated);
 

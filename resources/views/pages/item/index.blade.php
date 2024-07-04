@@ -16,6 +16,7 @@
                             <th>Action</th>
                             <th>Item</th>
                             <th>Description</th>
+                            <th>Image</th>
                             <th>Created At</th>
                             <th>Updated At</th>
                           </tr>
@@ -33,6 +34,9 @@
                                     </td>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->description }}</td>
+                                    <td>
+                                        <img src="{{ $item->getFirstMediaUrl('*') }}" alt="">
+                                    </td>
                                     <td>{{ $item->created_at }}</td>
                                     <td>{{ $item->updated_at }}</td>
                                 </tr>

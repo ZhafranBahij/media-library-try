@@ -18,11 +18,13 @@
                             </ul>
                         </div>
                     @endif
-                    <form action="{{ route('item.update', $data->id) }}" method="post">
+                    <form action="{{ route('item.update', $data->id) }}" method="post"  enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
+                        <img src="{{ $data->getFirstMediaUrl('*') }}" alt="">
                         <input type="text" name="name" placeholder="name" value="{{ $data->name }}">
                         <input type="text" name="description" placeholder="description" value="{{ $data->description }}">
+                        <input type="file" name="file">
                         <button type="submit" class="bg-blue-300 text-blue-800 px-4 py-2 rounded-md my-2">Update</button>
                     </form>
                 </div>
