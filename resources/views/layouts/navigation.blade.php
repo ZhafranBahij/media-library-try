@@ -18,6 +18,9 @@
                     <x-nav-link :href="route('item.index')" :active="request()->routeIs('item.*')">
                         {{ __('Item') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('url-image.index')" :active="request()->routeIs('url-image.*')">
+                        {{ __('URL Image') }}
+                    </x-nav-link>
                 </div>
             </div>
 
