@@ -16,6 +16,7 @@
                             <th>Action</th>
                             <th>Image</th>
                             <th>Name</th>
+                            <th>Name Chara</th>
                             <th>Author</th>
                             <th>Created At</th>
                             <th>Updated At</th>
@@ -35,6 +36,7 @@
                                     <td>
                                         <img src="{{ $item->getFirstMediaUrl('*') }}" alt="">
                                     </td>
+                                    <td>{{ $item->getFirstMedia('*')->name }}</td>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->author }}</td>
                                     <td>{{ $item->created_at }}</td>

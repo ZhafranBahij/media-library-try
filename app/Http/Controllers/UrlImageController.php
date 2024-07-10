@@ -40,6 +40,7 @@ class UrlImageController extends Controller
         $url_image = UrlImage::create($validated);
 
         $url_image->addMediaFromUrl($request->url)
+                ->usingName($validated['name'].'-'.$validated['author'])
                 ->toMediaCollection();
 
         return to_route('url-image.index');
